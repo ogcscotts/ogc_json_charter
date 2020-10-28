@@ -1,4 +1,4 @@
-:Title: OGC (add title text)
+:Title: OGCJSON Standards Working Group Charter
 :titletext: {Title}
 :doctype: book
 :encoding: utf-8
@@ -19,7 +19,7 @@
 |Approval Date:   <yyyy-mm-dd>
 |Internal reference number of this OGC(R) document:    YY-nnnrx
 |Category: OGC(R) Standards Working Group Charter
-|Authors:   <Name(s) of Editor or Editors>
+|Authors:   Clemens Portele, Panagiotis (Peter) Vretanos, Scott Simmons
 |===
 
 [cols = "^", frame = "none"]
@@ -30,12 +30,11 @@
 [cols = "^", frame = "none", grid = "none"]
 |===
 |*Copyright notice*
-|Copyright (C) <year> Open Geospatial Consortium
+|Copyright (C) 2020 Open Geospatial Consortium
 |To obtain additional rights of use, visit http://www.opengeospatial.org/legal/
 |===
 
 <<<
-
 ////
 Version of 2018-12-12
 Some Instructions
@@ -52,7 +51,7 @@ Any questions, please contact OGC staff.
 
 To: OGC members & interested parties
 
-A new OGC Standards Working Group is being formed. The OGC members listed below have proposed the OGC <Name of SWG>.  The SWG proposal provided in this document meets the requirements of the OGC Technical Committee (TC) Policies and Procedures.
+A new OGC Standards Working Group (SWG) is being formed. The OGC members listed below have proposed the OGCJSON SWG.  The SWG proposal provided in this document meets the requirements of the OGC Technical Committee (TC) Policies and Procedures.
 
 The SWG name, statement of purpose, scope, list of deliverables, audience, and language specified in the proposal will constitute the SWG's official charter. Technical discussions may occur no sooner than the SWG's first meeting.
 
@@ -79,27 +78,45 @@ Please feel free to forward this announcement to any other appropriate lists. Th
 Proposers will describe the purpose of the Standards Working Group and its overall mission in relation to OGC processes, the OGC standards baseline, and OGC’s business plan.
 ////
 
+The OGCJSON SWG is chartered to develop a JSON encoding for geospatial data. This encoding is intended to build upon the foundational OGC standards (such as Simple Features), be inclusive of other JSON geospatial encodings (such as GeoJSON [<<gj,1>>]), and support content delivery per the OGC API suite of standards. More specifically, OGCJSON will be structured such that GeoJSON can be a profile of the OGC standard.
+
 == Business Value Proposition
 
 ////
 This section provides a statement describing the value of this standards activity in relation to the OGC Membership, the geospatial community, and the wider IT community. This statement can be in terms of the interoperability problem being solved, processing Change requests to meet market (and Member requirements), a policy requirement and/or some other business value proposition. The proposition described in this section does not have to be in economic terms.
 ////
 
+JSON as an encoding format for geospatial data is becoming increasingly popular over XML. The light weight, simple syntax, and clear human and machine readability of JSON appeals to developers. GeoJSON has become a very popular encoding, but has significant limitations that prevent broad use in more technical circumstances. At a minimum, a more-inclusive JSON encoding for geospatial data should include the ability to use Coordinate Reference Systems (CRSs) other than WGS84 and support more feature types.
+
+OGCJSON may also include more complex geometries, such as 3D vectors or solids. Encoding of special data types should also be considered, such as Triangulated Irregular Networks (TINs) for elevation data, rasters (imagery and elevation), and time-variant geometry. The user community has also  identified prospective profiles of OGCJSON combine a subset of geometry from GeoJSON and support for multiple CRSs.
+
+Given the popularity of GeoJSON, the SWG will ensure that a profile of the OGCJSON to define GeoJSON is a pure subset of the requirements in OGCJSON.
+
 == Scope of Work
 
 ////
-This section describes the scope of work (SOW) for the work of the SWG. There are typically at least three (3) cases that justify the formation of a SWG: A group of members decide to develop a new OGC candidate standard from scratch, there is a draft submission being discussed by OGC members, or there are outstanding Change Requests for an existing OGC standard and a revision is required.
-
-The following describes the characteristics of a SOW for each of these cases.
+This section describes the scope of work (SOW) for the work of the SWG.
 
 For a SWG focused on defining and documenting a new OGC candidate standard from “scratch,” the SOW SHALL include a statement of the requirements and use cases for the candidate standard being developed. The SOW SHALL also include a justification statement for developing a new candidate OGC standard. The SOW SHALL also describe how the new candidate standard is related to the existing OGC standards baseline and the OGC Reference Model. The final deliverable of a “from scratch” focused SWG SHALL be a candidate standard ready for submission using the OGC standards process.
 
-For a SWG focused on processing a draft submission such as a specification developed outside the OGC and submitted into the OGC for consideration, the SOW would include evaluation of the submission in terms of the relationship to the existing OGC standards baseline (see section below). The final deliverable of such a SWG SHALL be a candidate standard for consideration by the membership for adoption.
-
-For a SWG focused on revisions to an existing adopted standard, the SOW should include a statement that the SWG will collect all outstanding Change Request Proposals (CRPs), evaluate each of the proposals, and make edits to the standard based on CRPs and related decisions of the SWG membership. The SWG, at their discretion, may also ask the membership for any additional change requests that have not been previous submitted. Again, the final deliverable of a revision focused SWG SHALL be a revision of the candidate standard for consideration by the membership for adoption.
-
 In all cases, the SWG Charter shall provide a basic timeline plan for their activities.
 ////
+
+OGCJSON is intended to fulfill a known need in the geospatial and broader community for a JSON encoding of spatial content that supports features not found in GeJSON, but which is generally more simple to implement than the OGC Geography Markup Language (GML)[<<gml,2>>]. The OGCJSON SWG will consider the elements contributing to the Business Value Proposition (above) as general requirements for defining the encoding requirements. The SWG will take on the following work actions.
+
+* Define requirements for OGCJSON based on currently identified community needs and further consultation with members and users of geospatial data, such as addition of CRS support to GeoJSON geometries.
+
+* Consider whether OGCJSON will be a monolithic encoding or use a core-extension model.
+
+* Leverage scope of profiles requested by user community to structure design of encoding such that profiling of the Standard is as simple as possible.
+
+* Assess relevance of JSON-LD[<<jl,3>>] to the structure of the OGCJSON Standard.
+
+* Use Sprints and/or Hackathons to help advance the work with realistic testing of the candidate Standard against community requirements.
+
+* Develop and move the candidate Standard through the approval process.
+
+* Add tasks, if appropriate, to develop profiles for more specific use, such as a Simple Features profile or profiles specific to domains such as aviation or transportation.
 
 === Statement of relationship of planned work to the current OGC standards baseline
 
@@ -112,17 +129,35 @@ If processing change requests and performing a revision to an existing standard,
 If processing a draft submission of a specification developed outside the OGC process, a clear statement of the relationship to the existing standards baseline including statements related to overlap (if any) with existing OGC standards functionality, harmonization issues, and so forth. This information is provided to allow a focus of the discussion on criteria for considering any new solution that may be incompatible with older ones, overlaps existing functionality in the current baseline, and criteria for either deprecating older solutions, or simultaneously endorsing more than one option.
 ////
 
+OGCJSON will build upon existing OGC Standards and offer capabilities fulfilled in part (or in total) by other standards. The primary difference between this effort and other OGC standards is that OGCJSON will provide a fundamental, yet flexible, encoding of geographic data in a JSON format.
+
+* Simple Features[<<si1,4>>],[<<si2,5>>]: Simple Features provides a distinct set of geometric objects for describing geographic feature data. Simple Feaures also define the geometry model for most other OGC feature encodings.
+
+* GML[<<gml,2>>] GML is a comprehensive encoding of geometry and topology in XML format. GML is quite heavy for simple feature data exchange.
+
+* GeoPackage[<<gp,6>>] GeoPackage defines a container for geospatial data, including feature content. GeoPackage uses SQLite for as a storage mechanism.
+
+* KML[<<kml,7>>] KML is a simple XML encoding of geographic features and linked content.
+
+* Abstract Specification Topic 1: Features and Geometry[<<fg,8>>]: OGC Abstract Specification Topic 1 is a comprehensive feature and geometry model from which Simple Features is derived. OGCJSON might encode any or all feature types in the Topic.
+
+* WKT CRS[<<wc,9>>] The Well Known Text representation of Coordinate Reference Systems offers a standardized way to fully describe CRSs for reference by any spatial data set.
+
 === What is Out of Scope?
 
 ////
 A short description of any activities that will be out of scope for the SWG. For example, a SWG may limit consideration of CRPs after a specified date or milestone.
 ////
 
+OGCJSON will not consider encodings beyond JSON.
+
 === Specific Existing Work Used as Starting Point
 
 ////
 This section provides reference information relevant to the work of the SWG. For example, a document reference for a draft submission or a list of CRPs for a SWG focused on revision to an adopted specification.
 ////
+
+OGCJSON will consider GeoJSON as a starting point for a content model and extend the model based on the benefits known from implementations of the Standards from the OGC Standards Baseline referenced above as well as other specifications used for geospatial data encoding and exchange.
 
 === Is This a Persistent SWG
 
@@ -135,6 +170,8 @@ This section provides reference information relevant to the work of the SWG. For
 ////
 If this is not a persistent SWG, please define the criteria for determining when the SWG can be inactivated and the project archived. Please note that completion and archiving ensures that all files, wikis, emails, and so forth are archived and available for future viewing and use.
 ////
+
+The OGCJSON SWG can be inactivated once the SWG identifies no new tasks for the SWG and there are no open Change Requests.
 
 == Description of deliverables
 
@@ -150,11 +187,23 @@ This section also includes a preliminary schedule of activities. For example, an
 Describe the initial standard(s) to be developed by the SWG.
 ////
 
+The following deliverables will be the initial results of work of the SWG.
+
+* OGCJSON Standard.
+
+* Associated implementation guidance for OGCJSON.
+
+* Any sample code, evidence of implementation, and/or compliance tests that might be developed in parallel to the Standard.
+
+The targeted start date for this SWG is the first quarter of 2021, once the charter is approved. The SWG will aim to deliver an initial release of the candidate Standard for review by the end of 2021.
+
 === Additional SWG Tasks
 
 ////
 Describe each additional standard to be developed by the SWG as an additional task after the deliverables from the initial charter have been completed. This section is blank in a new charter, then is populated with each task approval request per the OGC TC Policies and Procedures.
 ////
+
+No specific additional tasks are currently planned for the SWG, although extension to the Standard may be considered in the future.
 
 == IPR Policy for this SWG
 
@@ -170,11 +219,15 @@ Description of the target participants in this SWG. For example, if the SWG were
 This is not meant as a limiting statement but instead is intended to provide guidance to interested potential participants as to whether they wish to participate in this SWG.
 ////
 
+This SWG will develop a Standard for general use in the geospatial community and suitable for data exchange beyond this community. Geospatial data providers and software implementers will be interested in assisting with the development of this Standard as well as the output of the SWG.
+
 == Domain Working Group Endorsement
 
 ////
 The SWG will list all Domain Working Groups (DWGs) in which the SWG formation was discussed and/or chartered. If a DWG has specifically endorsed the formation of the SWG, then a statement of endorsement should be included.
 ////
+
+??? Bring to Architecture DWG ???
 
 == Other informative information about the work of this SWG
 
@@ -183,6 +236,8 @@ The SWG will list all Domain Working Groups (DWGs) in which the SWG formation wa
 ////
 Describe the work environment of the SWG, including the use of GitHub or GitLab.
 ////
+
+The OGCJSON SWG will collaborate on Standard development using a public GitHub repository. Development of the Standard will include the use of Issues and other project tools in GitHub.
 
 === Similar or Applicable Standards Work (OGC and Elsewhere)
 
@@ -195,12 +250,16 @@ IETF HTTP
 The SWG intends to seek and if possible maintain liaison with each of the organizations maintaining the above works.
 ////
 
+GeoJSON is clearly related to this work and is planned to be a valid profile of the resulting OGC Standard.
+
 === Details of first meeting
 
 ////
 Example:
 The first meeting of the SWG will be held by telephone conference call at 10AM EDT on 1 October 2007. Call-in information will be provided to the SWG's e-mail list and on the portal calendar in advance of the meeting.
 ////
+
+The first meeting of the SWG will occur within four weeks of approval of the SWG charter.
 
 === Projected on-going meeting schedule
 
@@ -209,9 +268,11 @@ Example:
 The work of the SWG will be carried out primarily by email and conference calls, possibly every two weeks, with face-to-face meetings perhaps at each of the OGC TC meetings.
 ////
 
+The work of this SWG will be carried out primarily on GitHub and via email, web conferences / calls, and at face-to-face sessions at OGC Member Meetings as agreed to by the SWG members. The web conferences / calls will be scheduled as needed and posted to the OGC portal. Voting on OGCJSON content will be limited to SWG members only.
+
 === Supporters of this Charter
 
-The following people support this proposal and are committed to the Charter and projected meeting schedule. These members are known as SWG Founding or Charter members. The charter members agree to the SoW and IPR terms as defined in this charter. The charter members have voting rights beginning the day the SWG is officially formed. Charter Members are shown on the public SWG page. Extend the table as necessary.
+The following people support this proposal and are committed to the Charter and projected meeting schedule. These members are known as SWG Founding or Charter members. The charter members agree to the SoW and IPR terms as defined in this charter. The charter members have voting rights beginning the day the SWG is officially formed. Charter Members are shown on the public SWG page.
 
 |===
 |Name |Organization
@@ -224,8 +285,27 @@ The following people support this proposal and are committed to the Charter and 
 Name of individual(s) who started the SWG process. Could be the lead for an RFC submission, an OGC staff person, or an individual who believes it is time for a revision to an adopted standard.
 ////
 
+[bibliography]
 == References
 
 ////
 Optional list of references.
 ////
+
+- [[[gj,1]]] IETF: IETF RFC 7946, The GeoJSON Format, 2016
+
+- [[[gml,2]]] OGC: OGC 07-036r1, OpenGIS Geography Markup Language (GML) Encoding Standard 3.2.2, 2016
+
+- [[[jl,3]]] W3C: JSON-LD A JSON-based Serialization for Linked Data, 2020
+
+- [[[si1,4]]] OGC: OGC 06-103r4, OpenGIS Implementation Standard for Geographic information - Simple feature access - Part 1: Common architecture, 2011
+
+- [[[si2,5]]] OGC: OGC 06-104r4, OpenGIS Implementation Standard for Geographic information - Simple feature access - Part 2: SQL option, 2010
+
+- [[[gp,6]]] OGC: OGC 12-128r15, OGC GeoPackage Encoding Standard, 2018
+
+- [[[kml,7]]] OGC: OGC 12-007r2, OGC KML 2.3, 2015
+
+- [[[fg,8]]] OGC: OGC 17-087r13, OGC Abstract Specification Topic 1 Features and geometry – Part 1: Feature models, 2020
+
+- [[[wc,9]]] OGC: OGC 18-010r7, Geographic information — Well-known text representation of coordinate reference systems, 2019
