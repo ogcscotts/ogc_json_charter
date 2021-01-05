@@ -17,7 +17,7 @@
 |[big]*Open Geospatial Consortium*
 |Submission Date: 2020-10-29
 |Approval Date:   <yyyy-mm-dd>
-|Internal reference number of this OGC(R) document:    20-086
+|Internal reference number of this OGC(R) document:    20-086r1
 |Category: OGC(R) Standards Working Group Charter
 |Authors:   Clemens Portele, Panagiotis (Peter) Vretanos, Scott Simmons
 |===
@@ -269,6 +269,10 @@ The SWG intends to seek and if possible maintain liaison with each of the organi
 
 GeoJSON is clearly related to this work and is planned to be a valid profile of the resulting OGC Standard.
 
+GeoJSON-T [<<gjt,11>>] extends GeoJSON by adding a "when" foreign member, either at the level of Feature or for individual geometries within a GeometryCollection.
+
+Linked Places format [<<lp,12>>] is GeoJSON and JSON-LD compatible. It also supports "when" elements, not only at Feature level and in geometries, but within a set of recognized properties ("names", "types", "relations"). This permits the temporal scoping of those attributes of places.
+
 === Details of first meeting
 
 ////
@@ -296,6 +300,8 @@ The following people support this proposal and are committed to the Charter and 
 
 |Clemens Portele |interactive instruments
 |Panagiotis (Peter) A. Vretanos |CubeWerx Inc.
+|Howard Butler |Hobu
+|Carsten Rönsdorf |Ordnance Survey
 |===
 
 === Conveners
@@ -332,3 +338,7 @@ Optional list of references.
 - [[[wc,9]]] OGC: OGC 18-010r7, Geographic information — Well-known text representation of coordinate reference systems, 2019
 
 - [[[up,10]]] OGC: OGC 20-012, UML-to-GML Application Schema Pilot (UGAS-2020) Engineering Report, to-be-published (http://docs.opengeospatial.org/DRAFTS/20-012.html[draft])
+
+- [[[gjt,11]]] GeoJSON-T (https://github.com/kgeographer/geojson-t)
+
+- [[[lp,12]]] Linked Places format (https://github.com/LinkedPasts/linked-places)
