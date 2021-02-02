@@ -461,7 +461,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Internal reference number of this OGC&#174; document:    20-086</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Internal reference number of this OGC&#174; document:    20-086r1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Category: OGC&#174; Standards Working Group Charter</p></td>
@@ -564,7 +564,7 @@ member of OGC;</p>
 <p>support more geometry types, in particular solids, and</p>
 </li>
 <li>
-<p>provide guidance on how to represent feature properties, including temporal properties, consistent with the General Feature Model in JSON.</p>
+<p>provide guidance on how to represent feature properties in JSON consistent with the General Feature Model, e.g., including temporal properties.</p>
 </li>
 </ul>
 </div>
@@ -594,7 +594,7 @@ member of OGC;</p>
 <p>OGC Features and Geometries JSON will use a core-and-extensions approach. The initial task of the SWG will be the initial version of OGC Features and Geometries JSON and will be restricted to the requirements identified in this charter. If successful, the scope may be extended with tasks to support additional capabilities.</p>
 </li>
 <li>
-<p>Leverage scope of profiles requested by the user community or domains to structure the design of the Standard such that profiling of the Standard is done by enumerating the conformance classes required by the community or domain.</p>
+<p>Leverage profiling requirements identified by the user community or domains to structure the design of the Standard such that profiling of the Standard is done by enumerating the conformance classes required by the community or domain.</p>
 </li>
 <li>
 <p>Assess relevance of JSON-LD[<a href="#jl">3</a>] to the structure of OGC Features and Geometries JSON.</p>
@@ -635,6 +635,9 @@ member of OGC;</p>
 <li>
 <p>WKT CRS[<a href="#wc">9</a>]: The Well Known Text representation of Coordinate Reference Systems offers a standardized way to fully describe CRSs for reference by any spatial data set.</p>
 </li>
+<li>
+<p>SensorThings API[<a href="#sta">13</a>]: SensorThings provides an open, geospatial-enabled and unified way to interconnect the Internet of Things (IoT) devices, data, and applications over the Web. It supports GeoJSON to encode locations and features of interest.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -647,7 +650,7 @@ member of OGC;</p>
 <p>Compatibility between versions of a standard is important. Revisions of OGC Features and Geometries JSON should avoid breaking existing implementations. Any Change Request that would result in a major revision of OGC Features and Geometries JSON is out-of-scope unless a 75% majority of the SWG members support the change.</p>
 </div>
 <div class="paragraph">
-<p>Standards are important for interoperability. At the same time, it is important that standards only state requirements that are important for a significantly large group of users. Proposals for new tasks or change requests to an existing standard must identify the user groups that will benefit from the proposal and include the commitment for two independent implementations that will generate the proposed JSON and for two independent implementations that will consume the proposed JSON.</p>
+<p>Standards are important for interoperability. At the same time, it is important that standards only state requirements that are important for a significantly large group of users. Proposals for new tasks or change requests to an existing standard must identify the user groups that will benefit from the proposal and include the commitment for two independent implementations that will generate JSON in accordance with all proposed changes and for two independent implementations that will consume that JSON.</p>
 </div>
 <div class="paragraph">
 <p>OGC Features and Geometries JSON is a modular standard. Developing profiles of OGC Features and Geometries JSON as separate standards should not be necessary and is, therefore, out-of-scope for the SWG. If a community has a need to develop a profile, the profile should be specified and governed by that community.</p>
@@ -659,7 +662,7 @@ member of OGC;</p>
 <p>OGC Features and Geometries JSON will consider GeoJSON as a starting point for a content model and extend the model based on the benefits known from implementations of the Standards from the OGC Standards Baseline referenced above as well as other specifications used for geospatial data encoding and exchange.</p>
 </div>
 <div class="paragraph">
-<p>The UGAS-2020 Pilot[<a href="#up">10</a>] has developed a proposal for a "Features Core Profile". If the Engineering Report will be approved by the OGC membership, it will be input to the work.</p>
+<p>The UGAS-2020 Pilot[<a href="#up">10</a>] has developed a proposal for a "Features Core Profile", and also developed a JSON Schema encoding rule that supports GeoJSON.</p>
 </div>
 </div>
 <div class="sect2">
@@ -756,6 +759,12 @@ member of OGC;</p>
 <div class="paragraph">
 <p>GeoJSON is clearly related to this work and is planned to be a valid profile of the resulting OGC Standard.</p>
 </div>
+<div class="paragraph">
+<p>GeoJSON-T [<a href="#gjt">11</a>] extends GeoJSON by adding a "when" foreign member, either at the level of Feature or for individual geometries within a GeometryCollection.</p>
+</div>
+<div class="paragraph">
+<p>Linked Places format [<a href="#lp">12</a>] is GeoJSON and JSON-LD compatible. It also supports "when" elements, not only at Feature level and in geometries, but within a set of recognized properties ("names", "types", "relations"). This permits the temporal scoping of those attributes of places.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_details_of_first_meeting"><a class="anchor" href="#_details_of_first_meeting"></a>8.3. Details of first meeting</h3>
@@ -793,6 +802,22 @@ member of OGC;</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Panagiotis (Peter) A. Vretanos</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">CubeWerx Inc.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Howard Butler</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Hobu</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Carsten Rönsdorf</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Ordnance Survey</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Ignacio Correas</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Skymantics</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Paul Birkel</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"></td>
 </tr>
 </tbody>
 </table>
@@ -838,7 +863,16 @@ member of OGC;</p>
 <p><a id="wc"></a>[9] OGC: OGC 18-010r7, Geographic information — Well-known text representation of coordinate reference systems, 2019</p>
 </li>
 <li>
-<p><a id="up"></a>[10] OGC: OGC 20-012, UML-to-GML Application Schema Pilot (UGAS-2020) Engineering Report, to-be-published (<a href="http://docs.opengeospatial.org/DRAFTS/20-012.html">draft</a>)</p>
+<p><a id="up"></a>[10] OGC: OGC 20-012, UML-to-GML Application Schema Pilot (UGAS-2020) Engineering Report, 2020</p>
+</li>
+<li>
+<p><a id="gjt"></a>[11] GeoJSON-T (<a href="https://github.com/kgeographer/geojson-t" class="bare">https://github.com/kgeographer/geojson-t</a>)</p>
+</li>
+<li>
+<p><a id="lp"></a>[12] Linked Places format (<a href="https://github.com/LinkedPasts/linked-places" class="bare">https://github.com/LinkedPasts/linked-places</a>)</p>
+</li>
+<li>
+<p><a id="sta"></a>[13] OGC: OGC 15-076r6, OGC SensorThings API - Part 1: Sensing, 2016</p>
 </li>
 </ul>
 </div>
@@ -847,7 +881,7 @@ member of OGC;</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-29 13:49:50 -0600
+Last updated 2021-02-02 13:39:40 +0100
 </div>
 </div>
 </body>
