@@ -91,7 +91,7 @@ JSON as an encoding format for geospatial data is becoming increasingly popular 
 * include the ability to use Coordinate Reference Systems (CRSs) other than WGS84,
 * support other non-Euclidean metrics, in particular ellipsoidal metrics,
 * support more geometry types, in particular solids, and
-* provide guidance on how to represent feature properties, including temporal properties, consistent with the General Feature Model in JSON.
+* provide guidance on how to represent feature properties in JSON consistent with the General Feature Model, e.g., including temporal properties.
 
 In the future OGC Features and Geometries JSON may be extended include more complex geometries such as curves with non-linear interpolation, time-variant geometry, or geometries based on multiple coordinate reference systems.
 
@@ -115,7 +115,7 @@ OGC Features and Geometries JSON is intended to fulfill a known need in the geos
 
 * OGC Features and Geometries JSON will use a core-and-extensions approach. The initial task of the SWG will be the initial version of OGC Features and Geometries JSON and will be restricted to the requirements identified in this charter. If successful, the scope may be extended with tasks to support additional capabilities.
 
-* Leverage scope of profiles requested by the user community or domains to structure the design of the Standard such that profiling of the Standard is done by enumerating the conformance classes required by the community or domain.
+* Leverage profiling requirements identified by the user community or domains to structure the design of the Standard such that profiling of the Standard is done by enumerating the conformance classes required by the community or domain.
 
 * Assess relevance of JSON-LD[<<jl,3>>] to the structure of OGC Features and Geometries JSON.
 
@@ -150,6 +150,9 @@ OGC Features and Geometries JSON will build upon existing OGC Standards and offe
 
 * WKT CRS[<<wc,9>>]: The Well Known Text representation of Coordinate Reference Systems offers a standardized way to fully describe CRSs for reference by any spatial data set.
 
+* SensorThings API[<<sta,13>>]: SensorThings provides an open, geospatial-enabled and unified way to interconnect the Internet of Things (IoT) devices, data, and applications over the Web. It supports GeoJSON to encode locations and features of interest.
+
+
 === What is Out of Scope?
 
 ////
@@ -160,7 +163,7 @@ OGC Features and Geometries JSON will not consider encodings beyond JSON.
 
 Compatibility between versions of a standard is important. Revisions of OGC Features and Geometries JSON should avoid breaking existing implementations. Any Change Request that would result in a major revision of OGC Features and Geometries JSON is out-of-scope unless a 75% majority of the SWG members support the change.
 
-Standards are important for interoperability. At the same time, it is important that standards only state requirements that are important for a significantly large group of users. Proposals for new tasks or change requests to an existing standard must identify the user groups that will benefit from the proposal and include the commitment for two independent implementations that will generate the proposed JSON and for two independent implementations that will consume the proposed JSON.
+Standards are important for interoperability. At the same time, it is important that standards only state requirements that are important for a significantly large group of users. Proposals for new tasks or change requests to an existing standard must identify the user groups that will benefit from the proposal and include the commitment for two independent implementations that will generate JSON in accordance with all proposed changes and for two independent implementations that will consume that JSON.
 
 OGC Features and Geometries JSON is a modular standard. Developing profiles of OGC Features and Geometries JSON as separate standards should not be necessary and is, therefore, out-of-scope for the SWG. If a community has a need to develop a profile, the profile should be specified and governed by that community.
 
@@ -172,7 +175,7 @@ This section provides reference information relevant to the work of the SWG. For
 
 OGC Features and Geometries JSON will consider GeoJSON as a starting point for a content model and extend the model based on the benefits known from implementations of the Standards from the OGC Standards Baseline referenced above as well as other specifications used for geospatial data encoding and exchange.
 
-The UGAS-2020 Pilot[<<up,10>>] has developed a proposal for a "Features Core Profile". If the Engineering Report will be approved by the OGC membership, it will be input to the work.
+The UGAS-2020 Pilot[<<up,10>>] has developed a proposal for a "Features Core Profile", and also developed a JSON Schema encoding rule that supports GeoJSON.
 
 === Is This a Persistent SWG
 
@@ -302,6 +305,8 @@ The following people support this proposal and are committed to the Charter and 
 |Panagiotis (Peter) A. Vretanos |CubeWerx Inc.
 |Howard Butler |Hobu
 |Carsten Rönsdorf |Ordnance Survey
+|Ignacio Correas |Skymantics 
+|Paul Birkel |
 |===
 
 === Conveners
@@ -337,8 +342,10 @@ Optional list of references.
 
 - [[[wc,9]]] OGC: OGC 18-010r7, Geographic information — Well-known text representation of coordinate reference systems, 2019
 
-- [[[up,10]]] OGC: OGC 20-012, UML-to-GML Application Schema Pilot (UGAS-2020) Engineering Report, to-be-published (http://docs.opengeospatial.org/DRAFTS/20-012.html[draft])
+- [[[up,10]]] OGC: OGC 20-012, UML-to-GML Application Schema Pilot (UGAS-2020) Engineering Report, 2020
 
 - [[[gjt,11]]] GeoJSON-T (https://github.com/kgeographer/geojson-t)
 
 - [[[lp,12]]] Linked Places format (https://github.com/LinkedPasts/linked-places)
+
+- [[[sta,13]]] OGC: OGC 15-076r6, OGC SensorThings API - Part 1: Sensing, 2016
