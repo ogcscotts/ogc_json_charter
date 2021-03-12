@@ -307,6 +307,7 @@ The following people support this proposal and are committed to the Charter and 
 |Carsten Rönsdorf |Ordnance Survey
 |Ignacio Correas |Skymantics 
 |Paul Birkel |
+|Gabriella Wiersma |Geonovum
 |===
 
 === Conveners
